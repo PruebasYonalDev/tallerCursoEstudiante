@@ -104,8 +104,69 @@ public class Estudiante  {
                     if (e2 != null) {
                         System.out.println(e2);
                     }
+
                 }
             }
+
+        getCurso1();
+        System.out.println(getCurso1().getNombreCurso());
+        getCurso2();
+        System.out.println(getCurso2().getNombreCurso());
+        getCurso3();
+        System.out.println(getCurso3().getNombreCurso());
+        getCurso4();
+        System.out.println(getCurso4().getNombreCurso());
+        getCurso5();
+        System.out.println(getCurso5().getNombreCurso());
+
+        System.out.println("Desea saber cual de estos cursos esta tomando el estudiante?");
+        System.out.println("SI / NO ? ");
+        resp = read.next();
+        if (resp.equals("si")) {
+            System.out.println("Ingrese el codigo del curso..");
+            resp = read.next();
+
+            if (pensumIncluyeCurso(resp)){
+                System.out.println("Esta inscrito ");
+            }else {
+                System.out.println("No esta inscrito ");
+
+            }
+        } else {
+            System.out.println("Gracias vuelve pronto");
+        }
+
+    }
+
+    public boolean pensumIncluyeCurso(String codigoCurso) {
+
+        for (int i = 1; i < estudiante.length; i++) {
+            for (int j = 0; j < estudiante.length; j++) {
+                if (estudiante[i][j] == null){
+                    estudiante[i][j] = "0";
+                    break;
+                } else {
+                    break;
+                }
+            }
+
+        }
+
+        boolean resp = false;
+        for (int i = 1; i < estudiante.length; i++) {
+            for (int j = 0; j < estudiante.length; j++) {
+                if (estudiante[i][j].equals(codigoCurso)){
+                    resp =  true;
+                    break;
+                } else {
+                    resp =  false;
+                    break;
+                }
+            }
+
+        }
+
+        return resp;
     }
 
     public Curso buscarCurso(String codigo) {
